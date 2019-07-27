@@ -26,6 +26,7 @@ class App extends React.Component {
   componentDidMount() {
     this.loadQuizData();
   }
+
   nextQuestionHandler = () => {
     const { myAnswer, answer, score } = this.state;
 
@@ -56,6 +57,7 @@ class App extends React.Component {
   checkAnswer = answer => {
     this.setState({ myAnswer: answer, disabled: false });
   };
+
   finishHandler = () => {
     if (this.state.currentQuestion === quizData.length - 1) {
       this.setState({
@@ -63,41 +65,43 @@ class App extends React.Component {
       });
     }
   };
+
   render() {
     const { options, myAnswer, currentQuestion, isEnd } = this.state;
 
     if (isEnd) {
       return (
         <div className="container result">
-          <h3>Final score : {this.state.score} / {quizData.length} </h3>
+          <h1 className="final-card">Thank you for taking up the quiz!</h1>
+          <h3 className="final-score"><span className="colorchange">Final score : </span>{this.state.score} / {quizData.length} </h3>
         </div>
       );
     } else {
       return (
+        
         <div className="container App">
-          <h1>{this.state.questions} </h1>
-          <span>{`Question ${currentQuestion + 1} of ${quizData.length} !!`}</span>
+          <h1 className="quiz-questions">{this.state.questions} </h1>
+          <span className="questions-left">{`Question ${currentQuestion + 1} of ${quizData.length} !!`}</span>
           {options.map(option => (
             <p
               key={option.id}
-              className={`ui floating message options
-         ${myAnswer === option ? "selected" : null}
-         `}
+              className={`ui floating message options ${myAnswer === option ? "selected" : null}`}
               onClick={() => this.checkAnswer(option)}
             >
               {option}
             </p>
           ))}
+          {/* Next Button */}
           {currentQuestion < quizData.length - 1 && (
             <button
-              className="ui inverted button"
+              className="btn btn-primary"
               disabled={this.state.disabled}
               onClick={this.nextQuestionHandler}
             >
               Next
             </button>
           )}
-          {/* //adding a finish button */}
+          {/* Finish Button */}
           {currentQuestion === quizData.length - 1 && (
             <button className="ui inverted button" onClick={this.finishHandler}>
               Finish
