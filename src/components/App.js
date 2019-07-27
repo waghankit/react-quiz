@@ -24,9 +24,10 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    this.loadQuizData();
+      this.loadQuizData();
   }
 
+  
   nextQuestionHandler = () => {
     const { myAnswer, answer, score } = this.state;
 
@@ -68,6 +69,7 @@ class App extends React.Component {
 
   render() {
     const { options, myAnswer, currentQuestion, isEnd } = this.state;
+    
 
     if (isEnd) {
       return (
@@ -80,6 +82,7 @@ class App extends React.Component {
       return (
         
         <div className="container App">
+        
           <h1 className="quiz-questions">{this.state.questions} </h1>
           <span className="questions-left">{`Question ${currentQuestion + 1} of ${quizData.length} !!`}</span>
           {options.map(option => (
