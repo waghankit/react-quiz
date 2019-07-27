@@ -1,5 +1,5 @@
 import React from "react";
-import { quizData } from "./quizData";
+import { quizData } from "./QuizData";
 import './style.css'
 
 
