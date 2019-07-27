@@ -87,7 +87,7 @@ class App extends React.Component {
           <span className="questions-left">{`Question ${currentQuestion + 1} of ${quizData.length} !!`}</span>
           {options.map(option => (
             <p
-              key={option.id}
+              key={option}
               className={`ui floating message options ${myAnswer === option ? "selected" : null}`}
               onClick={() => this.checkAnswer(option)}
             >
