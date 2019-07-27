@@ -8,8 +8,9 @@
   },
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
+    "build": "webpack -p"
   },
+  
   "author": "Ankit Wagh",
   "license": "ISC",
   "dependencies": {
