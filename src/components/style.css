@@ -83,7 +83,7 @@
   }
   
   @keyframes colorchangefinal{
-    0%{color: red;}
+    0%{color: blue;}
     25%{color:#bf55ec; ;}
     50%{ color: white; }
     100%{ color:#bf55ec;  }
